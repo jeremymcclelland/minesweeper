@@ -19,7 +19,7 @@ const generatePlayerBoard = (numberOfRows, numberOfColumns) => {
 };
 
 
-console.log(generatePlayerBoard(5, 6));
+//console.log(generatePlayerBoard(5, 6));
 
 
 

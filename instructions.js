@@ -91,3 +91,8 @@ touch .babelrc
 
 //run program
 node lib/minesweeper.js
+
+
+
+//Control Flow
+condition ? console.log('something with string interpolation') : console.log('something with no string interpolation');

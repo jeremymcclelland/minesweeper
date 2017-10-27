@@ -94,5 +94,7 @@ node lib/minesweeper.js
 
 
 
-//Control Flow
+//Control Flow 
+
+//ternary statement
 condition ? console.log('something with string interpolation') : console.log('something with no string interpolation');

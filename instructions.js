@@ -98,3 +98,110 @@ node lib/minesweeper.js
 
 //ternary statement
 condition ? console.log('something with string interpolation') : console.log('something with no string interpolation');
+
+
+
+
+
+//Objects this keyword/////////////
+
+let person = {
+  name: 'Tyron',
+  age: 40,
+  weekendAlarm: 'No alarms needed',
+  weekAlarm: 'Alarm set to 7AM',
+  
+  sayHello() {
+    return `Hello, my name is ${this.name}`;
+  },
+  
+  sayGoodbye() {
+    return 'Goodbye!';
+  }
+  
+};
+
+console.log(person.sayHello());
+
+person.hobbies = ['Basketball', 'Coaching'];
+person.hobbies = ['Basketball'];
+console.log(person.hobbies);
+
+
+console.log(person['name']);
+console.log(person['age']);
+
+let day = 'Tuesday';
+let alarm;
+
+if (day === 'Saturday' || day === 'Sunday' ) {
+  alarm = 'weekendAlarm';
+} else {
+  alarm = 'weekAlarm';
+}
+
+console.log(person[alarm]);
+
+//lending method to another Object////////////////////
+let friend = {
+  name: 'Rico',
+};
+
+
+friend.sayHello = person.sayHello;
+
+
+console.log(friend.sayHello());
+
+
+//getters and setters///////////////////////////
+
+let person = {
+  _name: 'Lu Xun',
+  _age: 137,
+  
+  set age(age) {
+     if (typeof age === 'number') {
+        this._age = age;
+     } else {
+       return 'Invalid input';
+     }
+  }
+
+};
+
+
+//using the setters
+
+person.age = 'Thirty-nine';
+person.age = 39;
+
+
+
+///GETTER method in use
+
+
+let person = {
+  _name: 'Lu Xun',
+  _age: 137,
+  
+  set age(age) {
+     if (typeof age === 'number') {
+        this._age = age;
+     } else {
+       return 'Invalid input';
+     }
+  },
+  
+  get age() {
+      //console.log(`${this._name} is ${this._age} years old.`);
+      return this._age;
+  }
+
+};
+
+
+person.age = 'Thirty-nine';
+person.age = 39;
+
+console.log(person.age);

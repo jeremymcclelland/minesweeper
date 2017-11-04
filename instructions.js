@@ -7,6 +7,8 @@ Instructions
 5. nam install babel-preset-env -D
 6. touch .babelrc
 
+ON A NEW Envirominet, npm i to folder to install node before build
+
 {
   "presets": ["env"]
 }

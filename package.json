@@ -9,9 +9,9 @@
   },
   "author": "",
   "license": "ISC",
-  "repository" :
-  { "type" : "git"
-  , "url" : "https://github.com/moraycreative/minesweeper.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/moraycreative/minesweeper.git"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",

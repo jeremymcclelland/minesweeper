@@ -318,3 +318,171 @@ console.log(Animal.generateName()); // returns a name
 
 const tyson = new Animal('Tyson'); 
 tyson.generateName(); // TypeError
+
+
+
+//Modules//////////////////////////////////
+let Menu = {};
+Menu.specialty = "Roasted Beet Burger with Mint Sauce";
+
+module.exports = Menu;
+
+
+//Getting module in another file
+
+const Airplane = require('./1-airplane.js');
+
+function displayAirplane() {
+  console.log(Airplane.myAirplane);
+}
+
+displayAirplane();
+
+
+
+
+let Airplane = {};
+
+module.exports = {
+  myAirplane: "CloudJet",
+  displayAirplane: function(){
+    return this.myAirplane;
+  }
+};
+
+
+
+//ES6 modules export syntax
+
+let Menu = {};
+
+export default Menu;
+
+const Airplane = require('./2-airplane.js');
+
+console.log(Airplane.displayAirplane());
+
+
+///////////////////////////////////////
+let Airplane = {
+  
+  availableAirplanes: [
+    
+     {
+      name: 'AeroJet',
+      fuelCapacity: 800
+     }, 
+     {name: 'SkyJet',
+      fuelCapacity: 500
+     }
+    
+  ],
+  
+  
+};
+
+export default Airplane;
+
+
+///////////////////////////////////////
+import Airplane from './airplane';
+
+function displayFuelCapacity(){
+  Airplane.availableAirplanes.forEach(function(element){
+    
+    console.log('Fuel Capacity of ' + element.name + ': ' + element.fuelCapacity);
+  });
+}
+
+
+displayFuelCapacity();
+
+
+/////////////////////////////////////////////
+
+let availableAirplanes = [{
+ name: 'AeroJet',
+ fuelCapacity: 800,
+ availableStaff: ['pilots', 'flightAttendants', 'engineers', 'medicalAssistance', 'sensorOperators'],
+}, 
+{name: 'SkyJet',
+ fuelCapacity: 500,
+ availableStaff: ['pilots', 'flightAttendants']
+}];
+
+let flightRequirements = {
+  requiredStaff: 4,
+};
+
+function meetsStaffRequirements(availableStaff, requiredStaff) {
+  if (availableStaff.length >= requiredStaff) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+export { availableAirplanes, flightRequirements, meetsStaffRequirements};
+
+////////////////////////////////////////
+
+
+import {availableAirplanes, flightRequirements, meetsStaffRequirements} from './airplane';
+
+function displayFuelCapacity() {
+  availableAirplanes.forEach(function(element) {
+    console.log('Fuel Capacity of ' + element.name + ': ' + element.fuelCapacity);
+  });
+}
+
+displayFuelCapacity();
+
+function displayStaffStatus() {
+  availableAirplanes.forEach(function(element) {
+   console.log(element.name + ' meets staff requirements: ' + meetsStaffRequirements(element.availableStaff, flightRequirements.requiredStaff) );
+  });
+}
+
+displayStaffStatus();
+
+
+/////////////////
+
+export let availableAirplanes = [{
+ name: 'AeroJet',
+ fuelCapacity: 800,
+ availableStaff: ['pilots', 'flightAttendants', 'engineers', 'medicalAssistance', 'sensorOperators'],
+  maxSpeed: 1200,
+  minSpeed: 300
+}, 
+{name: 'SkyJet',
+ fuelCapacity: 500,
+ availableStaff: ['pilots', 'flightAttendants'],
+ maxSpeed: 800,
+ minSpeed: 200
+}];
+
+export let flightRequirements = {
+  requiredStaff: 4,
+  requiredSpeedRange: 700
+};
+
+export function meetsStaffRequirements(availableStaff, requiredStaff) {
+  if (availableStaff.length >= requiredStaff) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+export function meetsSpeedRangeRequirements(maxSpeed, minSpeed, requiredSpeedRange){
+  let range = maxSpeed - minSpeed;
+  
+   if (range > requiredSpeedRange) {
+    return true;
+    } else {
+    return false;
+  }
+}
+
+
